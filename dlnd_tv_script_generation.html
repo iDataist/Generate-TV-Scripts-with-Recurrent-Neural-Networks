@@ -13624,19 +13624,19 @@ tensor([ 33,  26,  22,  39,  16,  28,  11,  43,  30,  12])</code></pre>
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>torch.Size([10, 5])
-tensor([[ 55,  56,  57,  58,  59],
-        [ 25,  26,  27,  28,  29],
-        [ 40,  41,  42,  43,  44],
-        [ 95,  96,  97,  98,  99],
-        [ 30,  31,  32,  33,  34],
-        [  5,   6,   7,   8,   9],
-        [ 85,  86,  87,  88,  89],
-        [ 20,  21,  22,  23,  24],
+tensor([[ 75,  76,  77,  78,  79],
         [  0,   1,   2,   3,   4],
+        [ 30,  31,  32,  33,  34],
+        [ 20,  21,  22,  23,  24],
+        [ 80,  81,  82,  83,  84],
+        [ 60,  61,  62,  63,  64],
+        [ 35,  36,  37,  38,  39],
+        [ 15,  16,  17,  18,  19],
+        [  5,   6,   7,   8,   9],
         [ 50,  51,  52,  53,  54]])
 
 torch.Size([10])
-tensor([  60,   30,   45,  100,   35,   10,   90,   25,    5,   55])
+tensor([ 80,   5,  35,  25,  85,  65,  40,  20,  10,  55])
 </pre>
 </div>
 </div>
@@ -13674,19 +13674,19 @@ tensor([  60,   30,   45,  100,   35,   10,   90,   25,    5,   55])
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>torch.Size([10, 5])
-tensor([[ 65,  66,  67,  68,  69],
-        [ 70,  71,  72,  73,  74],
-        [ 60,  61,  62,  63,  64],
-        [ 80,  81,  82,  83,  84],
+tensor([[ 25,  26,  27,  28,  29],
+        [ 95,  96,  97,  98,  99],
         [ 45,  46,  47,  48,  49],
-        [ 15,  16,  17,  18,  19],
-        [ 35,  36,  37,  38,  39],
         [ 90,  91,  92,  93,  94],
         [ 10,  11,  12,  13,  14],
-        [ 75,  76,  77,  78,  79]])
+        [ 70,  71,  72,  73,  74],
+        [ 85,  86,  87,  88,  89],
+        [ 40,  41,  42,  43,  44],
+        [ 55,  56,  57,  58,  59],
+        [ 65,  66,  67,  68,  69]])
 
 torch.Size([10])
-tensor([ 70,  75,  65,  85,  50,  20,  40,  95,  15,  80])
+tensor([  30,  100,   50,   95,   15,   75,   90,   45,   60,   70])
 </pre>
 </div>
 </div>
@@ -13984,7 +13984,7 @@ out = output[:, -1]</code></pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data params</span>
 <span class="c1"># Sequence Length</span>
-<span class="n">sequence_length</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># of words in a sequence</span>
+<span class="n">sequence_length</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># of words in a sequence</span>
 <span class="c1"># Batch Size</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
 
@@ -14016,9 +14016,9 @@ out = output[:, -1]</code></pre>
 <span class="c1"># Embedding Dimension</span>
 <span class="n">embedding_dim</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="c1"># Hidden Dimension</span>
-<span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="c1"># Number of RNN Layers</span>
-<span class="n">n_layers</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">n_layers</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1"># Show stats for every n number of batches</span>
 <span class="n">show_every_n_batches</span> <span class="o">=</span> <span class="mi">200</span>
@@ -14079,67 +14079,39 @@ out = output[:, -1]</code></pre>
     <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.6/site-packages/torch/nn/modules/rnn.py:38: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.5 and num_layers=1
+  &#34;num_layers={}&#34;.format(dropout, num_layers))
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training for 10 epoch(s)...
-Epoch:    1/10    Loss: 6.092013509273529
+Epoch:    1/10    Loss: 5.563297801017761
 
-Epoch:    1/10    Loss: 5.236982243061066
+Epoch:    2/10    Loss: 4.6695390843797
 
-Epoch:    1/10    Loss: 5.1190084767341615
+Epoch:    3/10    Loss: 4.172941225698625
 
-Epoch:    2/10    Loss: 4.8649034951184245
+Epoch:    4/10    Loss: 3.7593804097723686
 
-Epoch:    2/10    Loss: 4.725547314882278
+Epoch:    5/10    Loss: 3.2769359035053474
 
-Epoch:    2/10    Loss: 4.649550447463989
+Epoch:    6/10    Loss: 2.7789685808379074
 
-Epoch:    3/10    Loss: 4.515477299690247
+Epoch:    7/10    Loss: 2.338192599600759
 
-Epoch:    3/10    Loss: 4.4354870164394375
+Epoch:    8/10    Loss: 1.9335095789925805
 
-Epoch:    3/10    Loss: 4.412994192838669
+Epoch:    9/10    Loss: 1.597725230044332
 
-Epoch:    4/10    Loss: 4.302587169247705
-
-Epoch:    4/10    Loss: 4.24115473985672
-
-Epoch:    4/10    Loss: 4.277881928682327
-
-Epoch:    5/10    Loss: 4.111349103418556
-
-Epoch:    5/10    Loss: 4.073532370328903
-
-Epoch:    5/10    Loss: 4.07933591723442
-
-Epoch:    6/10    Loss: 3.9912866160676286
-
-Epoch:    6/10    Loss: 3.905975526571274
-
-Epoch:    6/10    Loss: 3.9545022225379944
-
-Epoch:    7/10    Loss: 3.855616991584365
-
-Epoch:    7/10    Loss: 3.80868313908577
-
-Epoch:    7/10    Loss: 3.812330356836319
-
-Epoch:    8/10    Loss: 3.6940306779500602
-
-Epoch:    8/10    Loss: 3.6719991540908814
-
-Epoch:    8/10    Loss: 3.6963911306858064
-
-Epoch:    9/10    Loss: 3.5930687156883447
-
-Epoch:    9/10    Loss: 3.5735554206371307
-
-Epoch:    9/10    Loss: 3.5767197489738463
-
-Epoch:   10/10    Loss: 3.4688123384037532
-
-Epoch:   10/10    Loss: 3.466273317337036
-
-Epoch:   10/10    Loss: 3.4652231216430662
+Epoch:   10/10    Loss: 1.3205657719538129
 
 </pre>
 </div>
@@ -14364,47 +14336,49 @@ Epoch:   10/10    Loss: 3.4652231216430662
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>jerry: you want?
+<pre>jerry: on the coffee shop ho ho ho ho ho ho, had a great lover of them and no one&#39;s. im not gonna be rich!(attempts his arm) i don&#39;t believe it! i don&#39;t believe that.
 
-jerry:(still throat) i don&#39;t know how that was a good guy, they know what you&#39;re gonna go?
+george:(hurriedly after a large) hey, thanks again for me, what are we gonna make?
 
-jerry: well, i was going to do it!
+elaine:(to jerry) yeah.
 
-jerry: oh, yeah.... i got you. i can&#39;t believe this. i can&#39;t have to do it.
+jerry: what did you do that get the break in front?
 
-jerry: well, i don&#39;t have any idea
+kramer: well, it&#39;s not good. fear-
 
-george: well, i don&#39;t want it.
+jerry:(looking up his arm) it&#39;s not a good thing, but it keeps.(points finger) well, i am sure you hear this, i can&#39;t spare my own little. i mean, that brain was a good friends. but i will go. i knew this morning. i don&#39;t know if i was going to say it!
 
-kramer: yeah.(jerry leaves)
+george:(putting her her finger) yeah.
 
-jerry: oh, i don&#39;t want to go. i mean, it&#39;s not going to be a little fight.
+jerry: what is that?
 
-kramer: oh, i can&#39;t get it, i don&#39;t even want to say anything.
+kramer: well, that&#39;s a bad big meeting. so she had a federal with you at home? they make the coffee shop from a little strange, so, it&#39;s not time in the hallway.(to kevin) yeah.
 
-jerry: i don&#39;t know, you know what you mean?
+george: hey.........
 
-elaine: yeah, i can&#39;t believe it was my real.
+kramer: well, what is it?
 
-jerry:(thinking) hey, what do you know, you&#39;re going to be a little salad, i don&#39;t want to go.
+jerry: what?
 
-jerry:(to elaine) oh, i don&#39;t want it, i&#39;m going up to you. i want to get the other hand.(to jerry) : yeah, you know, i&#39;m gonna be a great idea. you want her.
+george: what a surprise, you don&#39;t know, if you&#39;re gonna be a secret, he&#39;s the talking.(to jerry) did you know what?
 
-george:(leaving) i mean, you know how we were just gonna go to him with a couple of the world. and then then he was the woman of a pact of mine, and he doesn&#39;t have to see it.
+elaine: i don&#39;t know what i was in a shvitz. i don&#39;t understand...
 
-elaine: i don&#39;t want any idea.
+george:(standing) c&#39;mon.
 
-elaine: what?
+jerry:(looking after kramer) you&#39;re not going?
 
-kramer: well, you got to go in the building..... the car is an idiot, and it is my fault, and he doesn&#39;t like it to go, and i don&#39;t think i would have.
+newman:(pushing jerry towards the phone) what?
 
-george: oh, yeah.
+elaine: yeah.
 
-jerry:(still throat) oh, you know, i don&#39;t want to go.(jerry presses the door) : i don&#39;t know what i want to do.
+jerry: what is it?
 
-george:(to jerry) well, i got it.
+estelle:(still a more accent) jerry and i said it would be nice you at home. i want to go through right now?
 
-elaine:
+elaine: no, no, no. i gotta go.
+
+jerry:(holding
 </pre>
 </div>
 </div>
